@@ -1,56 +1,43 @@
-##
-## EPITECH PROJECT, 2018
-## Makefile
-## File description:
-## my make file
-##
+OPEN		=	open
+CC			=	gcc
+RM			=	rm -rf
 
-CC   =  gcc
+CFLAGS		=	-W -Wall -Wextra -Werror
+CPPFLAGS	=	
 
-SRC  =  graph.c					\
-		graph2.c				\
-		graph3.c				\
-		graph4.c				\
-		main.c					\
-		input_gestion.c			\
-		error_gestion.c			\
-		error_gestion2.c		\
-		create_graph.c			\
-		create_graph2.c			\
-		movements_algorithm.c
+TARGET		=	libmy.a
 
-OBJ  =  $(SRC:.c=.o)
+SRC			=	$(wildcard src/main/*.c)
+OBJ			=	$(SRC:.c=.o)
 
-NAME =  libmy.a
+TEST_SRC	=	$(wildcard src/test/*.c)
+TEST_OBJ	=	$(TEST_SRC:.c=.o)
 
-RM   =  rm -rf
+all			:	$(TARGET)
 
-CFLAGS = -W -Werror -Wextra -Wall
+$(TARGET)	:	$(OBJ)
+				$(AR) rsc $@ $^
 
-all: $(NAME)
+clean		:
+				$(RM) $(OBJ)
+				$(RM) *.gcda *.gcno *.gcov *.info
 
-$(NAME): $(OBJ)
-		$(CC) $^ $(LDFLAGS) $(LDGFLAGS) $(CPPFLAGS) -o $@
+fclean		:	clean
+				$(RM) $(TARGET)
+				$(RM) tests report
 
-clean:
-		$(RM) $(OBJ)
-		$(RM) *.gcno *.gcda *.info reporting
+re			:	fclean all
 
-fclean: clean
-		$(RM) $(NAME) tests
+test		:	$(SRC) $(TEST_SRC)
+				$(CC) -fprofile-arcs -ftest-coverage -Isrc/main -DMOCKING $(CFLAGS) $(CPPFLAGS) $(shell pkg-config --libs --cflags criterion) $^ -o tests
+				./tests
 
-re: fclean all
+report		:	test
+				lcov --capture --initial --directory . --output-file coverage_base.info
+				lcov --capture --directory . --output-file coverage_test.info
+				lcov --add-tracefile coverage_base.info --add-tracefile coverage_test.info --output-file coverage_merge.info
+				lcov --remove coverage_merge.info "`pwd`/src/test/*" -o coverage.info
+				genhtml -o $@ -t "couverture de code des tests" coverage.info
+				$(OPEN) $@/index.html
 
-tests:
-		$(CC) tests.c $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -fprofile-arcs -ftest-coverage -lcriterion -o tests
-
-reporting: tests
-		lcov --capture --initial --directory . --output-file coverage_base.info
-		lcov --capture --directory . --output-file coverage_test.info
-		lcov --add-tracefile coverage_base.info --add-tracefile coverage_test.info --output-file coverage_merge.info
-		lcov --remove coverage_merge.info "`pwd`/external/*" "`pwd`/test/*" "/usr/*" -o coverage.info
-		$(RM) reporting
-		genhtml -o reporting -t "couverture de tests" coverage.info
-		xdg-open reporting/index.html
-
-.PHONY: all clean fclean re tests $(NAME)
+.PHONY		:	all clean fclean re test report
