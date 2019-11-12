@@ -3,7 +3,7 @@
 int my_getnbr(char const *str)
 {
     int i = 0;
-    int value = 0;
+    long value = 0;
     int n = 1;
 
     while (str[i] == '+' || str[i] == '-') {
