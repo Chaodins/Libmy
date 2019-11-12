@@ -41,10 +41,10 @@ Test(my_put_nbr_base, should_print_minus_55)
 Test(my_put_nbr_base, should_return_84_for_invalid_base)
 {
     cr_assert(my_put_nbr_base(-1, "1") == 84, "should return 84 for an invalid base.");
-    cr_assert(my_put_nbr_base(-1, "") == 84, "should return 84 for an invalid base.");
+    cr_assert(my_put_nbr_base(47, "") == 84, "should return 84 for an invalid base.");
 }
 
 Test(my_put_nbr_base, should_return_84_for_NULL_base)
 {
-    cr_assert(my_put_nbr_base(-1, NULL) == 84, "should return 84 for a NULL base.");
+    cr_assert(my_put_nbr_base(-72, NULL) == 84, "should return 84 for a NULL base.");
 }
