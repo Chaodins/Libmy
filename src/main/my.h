@@ -9,5 +9,6 @@ int my_isneg(int n);
 int my_getnbr(char const *str);
 void my_swap(int *a, int *b);
 void my_sort_int_array(int *array, int size);
+int my_put_nbr_base(long nb, char *base);
 
 #endif /* __MY_H__ */

@@ -1,7 +1,6 @@
-#include "my.h"
 #include <unistd.h>
 
-void my_putchar(char c);
+#include "my.h"
 
 void my_put_nbr(int nb)
 {
