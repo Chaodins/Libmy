@@ -4,11 +4,6 @@
 
 void my_put_nbr(int nb)
 {
-    if (nb == -2147483648) {
-        my_putchar(45);
-        my_putchar(50);
-        nb = 147483648;
-    }
     if (nb < 0) {
         my_putchar(45);
         nb *= -1;
