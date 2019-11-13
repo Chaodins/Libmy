@@ -10,7 +10,7 @@ Test(my_compute_power_rec, should_return_4_for_2_square_2)
 
 Test(my_compute_power_rec, should_return_0_for_neg_power)
 {
-    cr_assert(my_compute_power_rec(2, -1), "Expected 0 because a number power a negative number is between 0 and 1.")
+    cr_assert(my_compute_power_rec(2, -1) == 0, "Expected 0 because a number power a negative number is between 0 and 1.");
 }
 
 Test(my_compute_power_rec, should_return_0_for_overflowing_output)
