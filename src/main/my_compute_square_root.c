@@ -2,13 +2,11 @@
 
 int my_compute_square_root(int nb)
 {
-    int a = 1;
     int i = 0;
+    int a = 1;
 
-    for (; a != nb; i++) {
+    for (; a != nb; i++)
         a = i * i;
-        i++;
-    }
-    i -= 1;
+    i = i - 1;
     return (i);
 }
