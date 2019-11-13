@@ -4,15 +4,20 @@
 
 char *my_revstr(char *str)
 {
-    int lenght = my_strlen(str);
-    char tmp;
+    int len = 0;
+    int i = 0;
+    int k;
+    char strcp;
 
-    if (!str)
-        return (NULL);
-    for (int i = 0, j = lenght - 1; i < (lenght / 2); i++, j--) {
-        tmp = str[i];
-        str[i] = str[j];
-        str[j] = tmp;
+    for (len = 0; str[len] != '\0'; len++);
+    len--;
+    k = len / 2;
+    while (i <= k) {
+        strcp = str[i];
+        str[i] = str[len];
+        str[len] = strcp;
+        i++;
+        len--;
     }
     return (str);
 }

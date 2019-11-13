@@ -7,7 +7,8 @@
 
 Test(my_revstr, expected_to_reverse_the_string)
 {
-    char *to_reverse = "Hello !";
+    char to_reverse[] = "Hello !";
 
-    cr_assert(strcmp(my_revstr(to_reverse), "! olleH") == 0, "Should reverse the string.");
+    cr_assert_str_eq(my_revstr(to_reverse), "! olleH");
+    cr_assert_eq(my_revstr(to_reverse), to_reverse);
 }
