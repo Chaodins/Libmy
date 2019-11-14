@@ -17,4 +17,5 @@ Test(my_str_isprintable, expected_to_return_1_for_printable_string_as_input)
     cr_assert(my_str_isprintable("\tBonsoir,") == 0, "Should return 0 for printable string as input.");
     cr_assert(my_str_isprintable("Gg\t") == 0, "Should return 0 for printable string as input.");
     cr_assert(my_str_isprintable("o\nO") == 0, "Should return 0 for printable string as input.");
+    cr_assert(my_str_isprintable(NULL) == 0, "Should return 0 for printable string as input.");
 }

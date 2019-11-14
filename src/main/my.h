@@ -32,6 +32,5 @@ char *my_strncpy(char *dest, char const *src, int n);
 char *my_strncat(char *dest, char const *src, int n);
 char *my_revstr(char *str);
 char *my_strstr(char *str, char const *to_find);
-int my_is_multiple(int x, int a);
 
 #endif /* __MY_H__ */
