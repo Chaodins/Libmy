@@ -32,5 +32,6 @@ char *my_strncpy(char *dest, char const *src, int n);
 char *my_strncat(char *dest, char const *src, int n);
 char *my_revstr(char *str);
 char *my_strstr(char *str, char const *to_find);
+char *my_strlowcase(char *str);
 
 #endif /* __MY_H__ */

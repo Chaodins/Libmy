@@ -4,7 +4,10 @@
 
 char *my_strcpy(char *dest, char const *src)
 {
-    (void)dest;
-    (void)src;
-    return (NULL);
+    int i = 0;
+
+    for (; src[i] != 0; i++)
+        dest[i] = src[i];
+    dest[i] = 0;
+    return (dest);
 }
