@@ -23,6 +23,7 @@ int my_str_islower(char const *str);
 int my_str_isnum(char const *str);
 int my_str_isupper(char const *str);
 char *my_strupcase(char *str);
+char *my_strlowcase(char *str);
 char *my_strcapitalize(char *str);
 char *my_strcat(char *dest, char const *src);
 int my_strcmp(char const *s1, char const *s2);
@@ -32,6 +33,5 @@ char *my_strncpy(char *dest, char const *src, int n);
 char *my_strncat(char *dest, char const *src, int n);
 char *my_revstr(char *str);
 char *my_strstr(char *str, char const *to_find);
-char *my_strlowcase(char *str);
 
 #endif /* __MY_H__ */

@@ -14,7 +14,7 @@ int my_getnbr(char const *str)
     while (str[i] >= '0' && str[i] <= '9') {
         value *= 10;
         value = value + str[i] - 48;
-        if (value > 2147483647 || value < -2147483646)
+        if (value > 2147483647 || value < -2147483648)
             return (0);
         ++i;
     }
