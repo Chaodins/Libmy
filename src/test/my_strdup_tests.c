@@ -11,4 +11,5 @@ Test(my_strdup, expected_to_duplicate_the_string)
 
     cr_assert(dup != str, "Dup should create a new string.");
     cr_assert_str_eq(str, dup);
+    free(dup);
 }

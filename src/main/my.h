@@ -34,5 +34,6 @@ char *my_strncat(char *dest, char const *src, int n);
 char *my_revstr(char *str);
 char *my_strstr(char *str, char const *to_find);
 char *my_strdup(char const *str);
+char *my_strndup(char const *str, int n);
 
 #endif /* __MY_H__ */
