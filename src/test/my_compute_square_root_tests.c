@@ -18,3 +18,11 @@ Test(my_compute_square_root, should_return_0_for_float_result)
     cr_assert(my_compute_square_root(7) == 0, "root of 7 = 7^1/2");
     cr_assert(my_compute_square_root(3) == 0, "root of 3 = 3^1/2");
 }
+
+Test(my_compute_square_root, should_return_0_for_negative_input)
+{
+    cr_assert(my_compute_square_root(-4) == 0, "Impossible to square a negative number");
+    cr_assert(my_compute_square_root(-100) == 0, "Impossible to square a negative number");
+    cr_assert(my_compute_square_root(-25) == 0, "Impossible to square a negative number");
+    cr_assert(my_compute_square_root(-9) == 0, "Impossible to square a negative number");
+}
