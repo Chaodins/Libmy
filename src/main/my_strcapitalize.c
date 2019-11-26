@@ -8,11 +8,15 @@ char *my_strcapitalize(char *str)
     int capitalize_indicator = 1;
 
     for (int i = 0; str[i]; i++) {
+        if (str[i] <= 'Z' && str[i] >= 'A' && capitalize_indicator == 0) {
+            str[i] += 32;
+            continue;
+        }
         if (capitalize_indicator == 1 && str[i] <= 'z' && str[i] >= 'a') {
             str[i] -= 32;
             capitalize_indicator = 0;
             continue;
-        } else if (capitalize_indicator == 1 &&str[i] <= 'Z' && str[i] >= 'A')
+        } else if (capitalize_indicator == 1 && str[i] <= 'Z' && str[i] >= 'A')
             capitalize_indicator = 0;
         if ((str[i] < 'a' || str[i] > 'z') && (str[i] > 'Z' || str[i] < 'A')) {
             capitalize_indicator = 1;
