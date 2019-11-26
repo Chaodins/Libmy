@@ -15,7 +15,7 @@ char *my_strsep(char **stringp, const char *delim)
     int i = 0;
     char *save = *stringp;
 
-    if (save == NULL)
+    if (save[0] == 0)
         return (NULL);
     for (; save[i] != '\0' && is_c_in_str(save[i], delim) != 1; i++);
     save[i] = '\0';
