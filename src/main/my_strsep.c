@@ -10,19 +10,15 @@ int is_c_in_str(char c, const char *str)
     return (0);
 }
 
-char *my_strsep(char **to_sep, const char *delim)
+char *my_strsep(char **stringp, const char *delim)
 {
     int i = 0;
-    char *string = *to_sep;
+    char *save = *stringp;
 
-    if (*to_sep == NULL)
+    if (save == NULL)
         return (NULL);
-    for (; *to_sep[i] != '\0'; i++) {
-        if (is_c_in_str(*to_sep[i], delim) == 1) {
-            *to_sep[i] = '\0';
-            *to_sep += i + 1;
-            return (string);
-        }
-    }
-    return (NULL);
+    for (; save[i] != '\0' && is_c_in_str(save[i], delim) != 1; i++);
+    save[i] = '\0';
+    *stringp += i + 1;
+    return (save);
 }
