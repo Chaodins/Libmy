@@ -1,3 +1,10 @@
+/*
+je mange
+des
+saucisses
+bonne
+*/
+
 #include "my.h"
 
 char *my_strcat(char *dest, char const *src)

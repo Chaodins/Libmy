@@ -18,6 +18,10 @@ char *my_strsep(char **stringp, const char *delim)
     if (save[0] == 0)
         return (NULL);
     for (; save[i] != '\0' && is_c_in_str(save[i], delim) != 1; i++);
+    if (save[i] == 0) {
+        *stringp += i;
+        return (save);
+    }
     save[i] = '\0';
     *stringp += i + 1;
     return (save);

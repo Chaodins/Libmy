@@ -5,8 +5,8 @@
 
 Test(my_strncat, expected_to_concatenate)
 {
-    char src[] = "monsieur";
-    char dest[16] = "Bonjour ";
+    char *src = "monsieur";
+    char dest[17] = "Bonjour ";
     char *res = my_strncat(dest, src, 8);
 
     cr_assert_str_eq("Bonjour monsieur", res);
@@ -15,7 +15,7 @@ Test(my_strncat, expected_to_concatenate)
 
 Test(my_strncat, expected_to_concatenate_n_characters)
 {
-    char src[] = "monsieur";
+    char *src = "monsieur";
     char dest[16] = "Bonjour ";
     char *res = my_strncat(dest, src, 2);
 

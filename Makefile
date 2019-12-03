@@ -1,15 +1,11 @@
 OPEN		=	open
-CC			=	gcc
+CC			=	clang
 RM			=	rm -rf
-
-CFLAGS		=	-W -Wall -Wextra -Werror
-CPPFLAGS	=	
-
+COVERAGE	=  -fprofile-arcs -ftest-coverage -fsanitize=address
+CFLAGS		=	-W -Wall -Wextra -Werror -fstack-protector -fstack-protector-all -fstack-protector-strong -Wstack-protector
 TARGET		=	libmy.a
-
 SRC			=	$(wildcard src/main/*.c)
 OBJ			=	$(SRC:.c=.o)
-
 TEST_SRC	=	$(wildcard src/test/*.c)
 TEST_OBJ	=	$(TEST_SRC:.c=.o)
 
@@ -29,7 +25,7 @@ fclean		:	clean
 re			:	fclean all
 
 test		:	$(SRC) $(TEST_SRC)
-				$(CC) -fprofile-arcs -ftest-coverage -Isrc/main -DMOCKING $(CFLAGS) $(CPPFLAGS) $(shell pkg-config --libs --cflags criterion) $^ -o tests
+				$(CC) $(COVERAGE) -Isrc/main -DMOCKING $(CFLAGS) $(CPPFLAGS) $(shell pkg-config --libs --cflags criterion) $^ -o tests
 				./tests
 
 report		:	test
