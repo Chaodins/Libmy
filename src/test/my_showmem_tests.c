@@ -5,5 +5,5 @@
 
 Test(my_showmem, expected)
 {
-    
+    cr_assert_eq(my_showmem("", 2), 0);
 }
