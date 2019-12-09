@@ -2,7 +2,7 @@
 //
 // #include <criterion/criterion.h>
 // #include <criterion/redirect.h>
-
+//
 // Test(my_showmem, expected)
 // {
 //     cr_redirect_stdout();
