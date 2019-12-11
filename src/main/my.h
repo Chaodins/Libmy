@@ -16,7 +16,6 @@ int my_alphaisprint(char c);
 int my_str_isprintable(char const *str);
 int my_is_prime(int nb);
 int my_find_prime_sup(int nb);
-int my_showmem(char const *str, int size);
 int my_showstr(char const *str);
 int my_str_isalpha(char const *str);
 int my_str_islower(char const *str);
@@ -36,5 +35,6 @@ char *my_strstr(char *str, char const *to_find);
 char *my_strdup(char const *str);
 char *my_strndup(char const *str, int n);
 char *my_strsep(char **to_sep, const char *delim);
+int is_c_in_str(char c, const char *str);
 
 #endif /* __MY_H__ */
